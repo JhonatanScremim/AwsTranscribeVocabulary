@@ -21,7 +21,7 @@ namespace AwsTranscribeVocabulary
 {
     public partial class FormMain : Form
     {
-        string credentialName = "default";
+        string credentialName = "AWS Educate";
         AWSCredentials credentials;
         private static readonly RegionEndpoint region = RegionEndpoint.USEast1;
         private string vocabularyFilter;
@@ -137,20 +137,16 @@ namespace AwsTranscribeVocabulary
 
         private async void BtJob_Click(object sender, EventArgs e)
         {
-            await UpLoadToS3(openFileDialog.FileName);
-            await ExecuteTranscribeAsync();
-        }
-
-        private async void BtVocabularyFilter_Click(object sender, EventArgs e)
-        {
             var words = GetWords();
             await ExecuteVocabularyFilter(words);
+            await UpLoadToS3(openFileDialog.FileName);
+            await ExecuteTranscribeAsync();
         }
 
         private List<string> GetWords()
         {
             string allWords = richTextBoxWords.Text.ToString();
-            string[] arrayWords = allWords.Split("\n");// tem que ver se pegando a string do rich se vai aparecer as quebras de linhas para poder separar
+            string[] arrayWords = allWords.Split("\n");
             
             List<string> words = new List<string>();
             foreach (string singleWord in arrayWords)
