@@ -21,6 +21,7 @@ namespace AwsTranscribeVocabulary
 {
     public partial class FormMain : Form
     {
+        string credentialName = "default";
         AWSCredentials credentials;
         private static readonly RegionEndpoint region = RegionEndpoint.USEast1;
         private string vocabularyFilter;
@@ -39,7 +40,7 @@ namespace AwsTranscribeVocabulary
         private void GetCredentials()
         {
             var chain = new CredentialProfileStoreChain();
-            if (!chain.TryGetAWSCredentials("AWS Educate", out credentials))
+            if (!chain.TryGetAWSCredentials(credentialName, out credentials))
             {
                 MessageBox.Show("Erro ao pegar credencial");
             }
@@ -105,7 +106,7 @@ namespace AwsTranscribeVocabulary
             await transcribeServiceClient.StartTranscriptionJobAsync(jobRequest);
         }
 
-        private async Task ExecuteVocabularyFilter()
+        private async Task ExecuteVocabularyFilter(List<string> words)
         {
             var client = new AmazonTranscribeServiceClient(credentials, region);
             string vocabularyFilterName = $"my-audio-bucket-001-{DateTime.Now.ToString("yyyymmddhhmmss")}";
@@ -113,7 +114,7 @@ namespace AwsTranscribeVocabulary
             {
                 LanguageCode = LanguageCode.PtBR,
                 VocabularyFilterName = vocabularyFilterName,
-                Words = { "beleza", "hoje", "daqui", "encher" }
+                Words = words
             };
 
             await client.CreateVocabularyFilterAsync(createVocabularyFilter);
@@ -142,7 +143,22 @@ namespace AwsTranscribeVocabulary
 
         private async void BtVocabularyFilter_Click(object sender, EventArgs e)
         {
-            await ExecuteVocabularyFilter();
+            var words = GetWords();
+            await ExecuteVocabularyFilter(words);
+        }
+
+        private List<string> GetWords()
+        {
+            string allWords = richTextBoxWords.Text.ToString();
+            string[] arrayWords = allWords.Split("\n");// tem que ver se pegando a string do rich se vai aparecer as quebras de linhas para poder separar
+            
+            List<string> words = new List<string>();
+            foreach (string singleWord in arrayWords)
+            {
+                words.Add(singleWord);
+            }
+
+            return words;
         }
     }
 }

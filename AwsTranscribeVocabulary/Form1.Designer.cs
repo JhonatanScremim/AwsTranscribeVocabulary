@@ -35,67 +35,97 @@ namespace AwsTranscribeVocabulary
             this.BtJob = new System.Windows.Forms.Button();
             this.BtVocabularyFilter = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.richTextBoxWords = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // TextBox
             // 
-            this.TextBox.Location = new System.Drawing.Point(98, 39);
+            this.TextBox.BackColor = System.Drawing.Color.Black;
+            this.TextBox.ForeColor = System.Drawing.Color.LightGray;
+            this.TextBox.Location = new System.Drawing.Point(13, 12);
+            this.TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(432, 27);
+            this.TextBox.Size = new System.Drawing.Size(378, 23);
             this.TextBox.TabIndex = 0;
             // 
             // comboBoxBucket
             // 
+            this.comboBoxBucket.BackColor = System.Drawing.Color.Black;
+            this.comboBoxBucket.ForeColor = System.Drawing.Color.LightGray;
             this.comboBoxBucket.FormattingEnabled = true;
-            this.comboBoxBucket.Location = new System.Drawing.Point(98, 93);
+            this.comboBoxBucket.Location = new System.Drawing.Point(13, 53);
+            this.comboBoxBucket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxBucket.Name = "comboBoxBucket";
-            this.comboBoxBucket.Size = new System.Drawing.Size(293, 28);
+            this.comboBoxBucket.Size = new System.Drawing.Size(378, 23);
             this.comboBoxBucket.TabIndex = 1;
             // 
             // BtSearch
             // 
-            this.BtSearch.Location = new System.Drawing.Point(545, 37);
+            this.BtSearch.BackColor = System.Drawing.Color.Black;
+            this.BtSearch.ForeColor = System.Drawing.Color.LightGray;
+            this.BtSearch.Location = new System.Drawing.Point(404, 11);
+            this.BtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtSearch.Name = "BtSearch";
-            this.BtSearch.Size = new System.Drawing.Size(94, 29);
+            this.BtSearch.Size = new System.Drawing.Size(82, 22);
             this.BtSearch.TabIndex = 2;
-            this.BtSearch.Text = "BtSearch";
-            this.BtSearch.UseVisualStyleBackColor = true;
+            this.BtSearch.Text = "Open File";
+            this.BtSearch.UseVisualStyleBackColor = false;
             this.BtSearch.Click += new System.EventHandler(this.BtSearch_Click);
             // 
             // BtJob
             // 
-            this.BtJob.Location = new System.Drawing.Point(436, 93);
+            this.BtJob.BackColor = System.Drawing.Color.Black;
+            this.BtJob.ForeColor = System.Drawing.Color.LightGray;
+            this.BtJob.Location = new System.Drawing.Point(404, 52);
+            this.BtJob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtJob.Name = "BtJob";
-            this.BtJob.Size = new System.Drawing.Size(94, 29);
+            this.BtJob.Size = new System.Drawing.Size(82, 22);
             this.BtJob.TabIndex = 3;
-            this.BtJob.Text = "BtJob";
-            this.BtJob.UseVisualStyleBackColor = true;
+            this.BtJob.Text = "Upload File";
+            this.BtJob.UseVisualStyleBackColor = false;
             this.BtJob.Click += new System.EventHandler(this.BtJob_Click);
             // 
             // BtVocabularyFilter
             // 
-            this.BtVocabularyFilter.Location = new System.Drawing.Point(98, 161);
+            this.BtVocabularyFilter.BackColor = System.Drawing.Color.Black;
+            this.BtVocabularyFilter.ForeColor = System.Drawing.Color.LightGray;
+            this.BtVocabularyFilter.Location = new System.Drawing.Point(404, 93);
+            this.BtVocabularyFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtVocabularyFilter.Name = "BtVocabularyFilter";
-            this.BtVocabularyFilter.Size = new System.Drawing.Size(94, 29);
+            this.BtVocabularyFilter.Size = new System.Drawing.Size(82, 22);
             this.BtVocabularyFilter.TabIndex = 4;
-            this.BtVocabularyFilter.Text = "BtVocabularyFilter";
-            this.BtVocabularyFilter.UseVisualStyleBackColor = true;
+            this.BtVocabularyFilter.Text = "Filter Result";
+            this.BtVocabularyFilter.UseVisualStyleBackColor = false;
             this.BtVocabularyFilter.Click += new System.EventHandler(this.BtVocabularyFilter_Click);
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // richTextBoxWords
+            // 
+            this.richTextBoxWords.BackColor = System.Drawing.Color.Black;
+            this.richTextBoxWords.ForeColor = System.Drawing.Color.LightGray;
+            this.richTextBoxWords.Location = new System.Drawing.Point(13, 93);
+            this.richTextBoxWords.Name = "richTextBoxWords";
+            this.richTextBoxWords.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.richTextBoxWords.Size = new System.Drawing.Size(378, 294);
+            this.richTextBoxWords.TabIndex = 5;
+            this.richTextBoxWords.Text = "";
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(504, 399);
+            this.Controls.Add(this.richTextBoxWords);
             this.Controls.Add(this.BtVocabularyFilter);
             this.Controls.Add(this.BtJob);
             this.Controls.Add(this.BtSearch);
             this.Controls.Add(this.comboBoxBucket);
             this.Controls.Add(this.TextBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -111,6 +141,7 @@ namespace AwsTranscribeVocabulary
         private System.Windows.Forms.Button BtSearch;
         private System.Windows.Forms.ComboBox comboBoxBucket;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.RichTextBox richTextBoxWords;
     }
 }
 
